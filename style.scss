@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+$bodyFont: 'Space Mono', sans-serif;
+$fontSize: 16px;
+$orange: #f16b42;
+$darkGrey: #2d303f;
+$white: #fff;
+$transition: .3s easy-in-out;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $bodyFont;
+    font-size: $fontSize;
+}
+
+
