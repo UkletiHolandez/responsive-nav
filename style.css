@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+/*--------------------
+    base styles
+--------------------*/
 * {
   margin: 0;
   padding: 0;
@@ -23,28 +26,6 @@ a {
   text-decoration: none;
 }
 
-.bars-open .bar:nth-child(1) {
-  transition: transform 0.2s ease-in-out;
-  transform: rotate(45deg) translate(6.5px, 6px);
-}
-.bars-open .bar:nth-child(2) {
-  opacity: 0;
-}
-.bars-open .bar:nth-child(3) {
-  transition: transform 0.2s ease-in-out;
-  transform: rotate(-45deg) translate(6.5px, -6.5px);
-}
-
-.nav-opened {
-  background: #2d303f;
-  display: flex !important;
-  flex-direction: column;
-  position: absolute;
-  top: 54px;
-  left: 0;
-  width: 100%;
-}
-
 /*--------------------
     nav
 --------------------*/
@@ -62,10 +43,15 @@ nav .navbar a {
 }
 nav .navbar .bars {
   display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  cursor: pointer;
+}
+@media (max-width: 768px) {
+  nav .navbar .bars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+  }
 }
 nav .navbar .bars .bar {
   width: 25px;
@@ -74,13 +60,24 @@ nav .navbar .bars .bar {
   margin: 3px;
   transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
-@media (max-width: 768px) {
-  nav .navbar .bars {
-    display: flex;
-  }
+nav .navbar .bars-open .bar:nth-child(1) {
+  transition: transform 0.2s ease-in-out;
+  transform: rotate(45deg) translate(6.5px, 6px);
+}
+nav .navbar .bars-open .bar:nth-child(2) {
+  opacity: 0;
+}
+nav .navbar .bars-open .bar:nth-child(3) {
+  transition: transform 0.2s ease-in-out;
+  transform: rotate(-45deg) translate(6.5px, -6.5px);
 }
 nav .navbar .nav-menu ul.nav-links {
   display: flex;
+}
+@media (max-width: 768px) {
+  nav .navbar .nav-menu ul.nav-links {
+    display: block;
+  }
 }
 nav .navbar .nav-menu ul.nav-links li {
   display: flex;
@@ -96,13 +93,19 @@ nav .navbar .nav-menu ul.nav-links li a:hover {
   color: #2d303f;
 }
 @media (max-width: 768px) {
-  nav .navbar .nav-menu ul.nav-links {
-    display: block;
-  }
-}
-@media (max-width: 768px) {
   nav .navbar .nav-menu {
     display: none;
+    background: #2d303f;
+    flex-direction: column;
+    position: absolute;
+    top: 54px;
+    left: 0;
+    width: 100%;
+  }
+}
+@media (min-width: 769px) {
+  nav .navbar .nav-menu {
+    display: flex !important;
   }
 }
 
